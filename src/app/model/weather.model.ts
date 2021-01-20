@@ -10,5 +10,5 @@ export class Weather {
   public description: string;
 
   // Weather icon id
-  public iconCode: string;
+  public icon: string;
 }

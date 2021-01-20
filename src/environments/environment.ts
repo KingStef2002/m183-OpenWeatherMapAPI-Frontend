@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   openWeatherMapApiUrl: 'https://api.openweathermap.org/data/2.5',
-  apiKey: '123sefrss4r'
+  apiKey: 'e16046cf8fb61f462eafc5603042ba03'
 };
 
 /*

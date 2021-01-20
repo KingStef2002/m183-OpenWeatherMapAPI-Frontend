@@ -3,6 +3,8 @@ export class WeatherDetails {
   // Temperature. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit. (einstellbar in get params)
   public temp: number;
 
+  public feels_like: number;
+
   // Atmospheric pressure, hPa
   public pressure: number;
 

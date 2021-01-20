@@ -15,7 +15,7 @@ export class Weatherstation {
   // Internal parameter
   public base: string;
 
-  public weather: Weather;
+  public weather: Weather[];
   public main: WeatherDetails;
   public sys: Cityinfo;
   public visibility: number;

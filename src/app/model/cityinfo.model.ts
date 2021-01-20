@@ -1,3 +1,5 @@
+import {formatDate} from '@angular/common';
+
 export class Cityinfo {
   public type: number;
   public id: number;

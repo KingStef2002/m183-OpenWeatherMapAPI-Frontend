@@ -4,13 +4,18 @@
   <div class="col">
     <h1>Welcome</h1>
     <br/>
-    <form [formGroup]="searchCityWeatherFormGroup">
-      <input class="form-control"
-             type="search"
-             placeholder=""
-             aria-label="Search"
+    <form [formGroup]="searchCityWeatherFormGroup" (ngSubmit)="onSubmit(searchCityWeatherFormGroup.value)">
+      <input class="form-control" type="search" placeholder="City" aria-label="Search"
              [formControlName]="'searchValue'">
+      <select class="custom-select" [formControlName]="'language'">
+        <option value="" disabled>Choose your language</option>
+        <option *ngFor="let language of keys()" ngValue="language">{{language}}</option>
+      </select>
+      <button class="btn btn-primary" type="submit">search</button>
     </form>
+    <ng-container *ngIf="(result | async) as station">
+      <app-weatherinfo [weatherstation$]="result"></app-weatherinfo>
+    </ng-container>
     <br/>
   </div>
   <div class="col">
