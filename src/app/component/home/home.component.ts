@@ -28,8 +28,10 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit(value: any): void {
-    if (value.searchValue){
-      this.result = this.weatherService.getCurrentWeatherData(value.city, this.languages[value.language]);
+    if (value.city && value.city !== ''){
+      if (value.language === '' || this.languages[value.language]) {
+        this.result = this.weatherService.getCurrentWeatherData(value.city, this.languages[value.language]);
+      }
     }
   }
 
