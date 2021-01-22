@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {Weatherstation} from '../../model/weatherstation.model';
-import {debounceTime, map, publishReplay, refCount, startWith, switchMap} from 'rxjs/operators';
 import {WeatherService} from '../../service/weather.service';
 import {Languages} from '../../util/languages';
-import {Cityinfo} from '../../model/cityinfo.model';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +19,7 @@ export class HomeComponent implements OnInit {
   public constructor(private fb: FormBuilder,
                      private weatherService: WeatherService) {
     this.searchCityWeatherFormGroup = this.fb.group({
-      searchValue: ['London', Validators.required],
+      city: ['', Validators.required],
       language: ['']
     });
   }
@@ -31,7 +29,7 @@ export class HomeComponent implements OnInit {
 
   onSubmit(value: any): void {
     if (value.searchValue){
-      this.result = this.weatherService.getCurrentWeatherData(value.searchValue, value.language);
+      this.result = this.weatherService.getCurrentWeatherData(value.city, this.languages[value.language]);
     }
   }
 

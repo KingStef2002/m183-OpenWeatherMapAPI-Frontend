@@ -6,10 +6,10 @@
     <br/>
     <form [formGroup]="searchCityWeatherFormGroup" (ngSubmit)="onSubmit(searchCityWeatherFormGroup.value)">
       <input class="form-control" type="search" placeholder="City" aria-label="Search"
-             [formControlName]="'searchValue'">
+             [formControlName]="'city'">
       <select class="custom-select" [formControlName]="'language'">
-        <option value="" disabled>Choose your language</option>
-        <option *ngFor="let language of keys()" ngValue="language">{{language}}</option>
+        <option value="" disabled>Choose your language (optional)</option>
+        <option *ngFor="let language of keys()" ngValue="{{language}}">{{language}}</option>
       </select>
       <button class="btn btn-primary" type="submit">search</button>
     </form>

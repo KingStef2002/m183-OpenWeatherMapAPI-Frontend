@@ -2,36 +2,47 @@
   <div class="card-body">
     <h1 class="card-title">{{weatherstation.name}}</h1>
     <small class="text-secondary">{{weatherstation.id}}</small>
-    <div class="card-text">
-      <b>Base: </b> {{weatherstation.base}} <br/>
+    <br>
+    <div class="card">
+      <h2 class="card-title">Hauptinformationen</h2>
+      <b>Temperatur: </b> {{weatherstation.main.temp}}°C<br/>
+      <b>Gefühlt wie: </b> {{weatherstation.main.feels_like}}°C<br/>
+      <b>Feuchtigkeit: </b> {{weatherstation.main.humidity}}%<br/>
+      <b>Druck: </b> {{weatherstation.main.pressure}}hPa<br/>
+      <b>Max Temp: </b> {{weatherstation.main.temp_max}}°C<br/>
+      <b>Min Temp: </b> {{weatherstation.main.temp_min}}°C<br/>
+      <b>Sichtbarkeit: </b> {{weatherstation.visibility}} <br/>
       <b>Clouds: </b> {{weatherstation.clouds.all}}%<br/>
-      <b>Cod: </b> {{weatherstation.cod}} <br/>
-      <b>Coords: </b> <br/>
-
+    </div>
+    <br>
+    <div class="card">
+      <h2 class="card-title">Systeminformation</h2>
+        <b>Land: </b> {{weatherstation.sys.country}} <br/>
+        <b>Id: </b> {{weatherstation.sys.id}} <br/>
+        <b>Nachricht: </b> {{weatherstation.sys.message}} <br/>
+        <b>Sonnenaufgang: </b> {{util.getDate(weatherstation.sys.sunrise)}} <br/>
+        <b>Sonnenuntergang </b> {{util.getDate(weatherstation.sys.sunset)}} <br/>
+    </div>
+    <br>
+    <div class="card">
+      <h2 class="card-title">Koordinaten</h2>
       <b>Lon: </b> {{weatherstation.coord.lon}} <br/>
       <b>Lat: </b> {{weatherstation.coord.lat}} <br/>
-
-      <b>Temperatur: </b> {{weatherstation.main.temp}} <br/>
-      <b>Gefühlt wie: </b> {{weatherstation.main.feels_like}} <br/>
-      <b>Feuchtigkeit: </b> {{weatherstation.main.humidity}} <br/>
-      <b>Druck: </b> {{weatherstation.main.pressure}} <br/>
-      <b>Max Temp: </b> {{weatherstation.main.temp_max}} <br/>
-      <b>Min Temp: </b> {{weatherstation.main.temp_min}} <br/>
-
-      <b>Land: </b> {{weatherstation.sys.country}} <br/>
-      <b>Id: </b> {{weatherstation.sys.id}} <br/>
-      <b>Nachricht: </b> {{weatherstation.sys.message}} <br/>
-      <b>Sonnenaufgang: </b> {{util.getDate(weatherstation.sys.sunrise)}} <br/>
-      <b>Sonnenuntergang </b> {{util.getDate(weatherstation.sys.sunset)}} <br/>
-      <b>Typ: </b> {{weatherstation.sys.type}} <br/>
-
-      <b>Sichtbarkeit: </b> {{weatherstation.visibility}} <br/>
-
+    </div>
+    <br>
+    <div class="card">
       <b>Beschreibung: </b> {{weatherstation.weather[0].description}} <br/>
-      <b>Icon: </b> <img id="wicon" src="http://openweathermap.org/img/w/{{weatherstation.weather[0].icon}}.png"  alt="Weather icon"> <br/>
-      <b>Id Wetter: </b> {{weatherstation.weather[0].id}} <br/>
+      <b>Icon: </b>
+      <div class="card-text">
+        <img id="wicon" src="http://openweathermap.org/img/w/{{weatherstation.weather[0].icon}}.png"  alt="Weather icon"> <br/>
+      </div>
       <b>Info: </b> {{weatherstation.weather[0].main}} <br/>
-
+      <b>Winkel: </b> {{weatherstation.wind.deg}} <br/>
+      <b>Geschwindigkeit: </b> {{weatherstation.wind.speed}} <br/>
+    </div>
+    <br>
+    <div class="card">
+      <h2 class="card-title">Wind</h2>
       <b>Winkel: </b> {{weatherstation.wind.deg}} <br/>
       <b>Geschwindigkeit: </b> {{weatherstation.wind.speed}} <br/>
     </div>

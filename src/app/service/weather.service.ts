@@ -14,19 +14,15 @@ export class WeatherService {
   constructor(private http: HttpClient) { }
 
   public getCurrentWeatherData(city: string, language: Languages): Observable<Weatherstation>{
-    const params = new HttpParams()
+    let params = new HttpParams()
       .set('q', city)
-      .set('appid', environment.apiKey);
+      .set('appid', environment.apiKey)
+      .set('units', 'metric');
 
     if (language){
-      params.set('lang', language.toString());
+      params = params.set('lang', language.toString());
     }
 
     return this.http.get<Weatherstation>(getCurrentWeatherUrl(), {params});
-  }
-
-  public getWeatherIconByIconCode(iconcode: string): any {
-    let iconurl = 'http://openweathermap.org/img/w/' + iconcode + '.png';
-
   }
 }
